@@ -1,4 +1,4 @@
-module github.com/imrenagi/go-oauth2-mysql
+module github.com/imrenagi/go-oauth2-mysql/v4
 
 go 1.12
 
