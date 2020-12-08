@@ -6,10 +6,10 @@ import (
 	"log"
 	"time"
 
+	"github.com/go-oauth2/oauth2/v4"
+	"github.com/go-oauth2/oauth2/v4/models"
 	"github.com/jmoiron/sqlx"
 	jsoniter "github.com/json-iterator/go"
-	"gopkg.in/oauth2.v3"
-	"gopkg.in/oauth2.v3/models"
 )
 
 type TokenStore struct {
@@ -219,8 +219,8 @@ func (s *TokenStore) GetByCode(code string) (oauth2.TokenInfo, error) {
 	var item TokenStoreItem
 	err := s.db.QueryRowx(query, code).StructScan(&item)
 	switch {
-	case err == sql.ErrNoRows:
-		return nil, nil
+	// case err == sql.ErrNoRows:
+	// 	return nil, nil
 	case err != nil:
 		return nil, err
 	}
@@ -238,8 +238,8 @@ func (s *TokenStore) GetByAccess(access string) (oauth2.TokenInfo, error) {
 	var item TokenStoreItem
 	err := s.db.QueryRowx(query, access).StructScan(&item)
 	switch {
-	case err == sql.ErrNoRows:
-		return nil, nil
+	// case err == sql.ErrNoRows:
+	// 	return nil, nil
 	case err != nil:
 		return nil, err
 	}
@@ -256,8 +256,8 @@ func (s *TokenStore) GetByRefresh(refresh string) (oauth2.TokenInfo, error) {
 	var item TokenStoreItem
 	err := s.db.QueryRowx(query, refresh).StructScan(&item)
 	switch {
-	case err == sql.ErrNoRows:
-		return nil, nil
+	// case err == sql.ErrNoRows:
+	// 	return nil, nil
 	case err != nil:
 		return nil, err
 	}

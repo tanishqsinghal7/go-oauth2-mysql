@@ -1,19 +1,20 @@
 package mysql_test
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"testing"
 	"time"
 
+	"github.com/go-oauth2/oauth2/v4/models"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pgadapter "github.com/vgarvardt/go-pg-adapter"
-	"gopkg.in/oauth2.v3/models"
 
-	. "github.com/imrenagi/go-oauth2-mysql"
+	. "github.com/passwind/go-oauth2-mysql/v4"
 )
 
 func generateTokenTableName() string {
@@ -148,6 +149,9 @@ func runTokenStoreRefreshTest(t *testing.T, store *TokenStore) {
 }
 
 func runClientStoreTest(t *testing.T, store *ClientStore) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
 	originalClient := &models.Client{
 		ID:     fmt.Sprintf("id %s", time.Now().String()),
 		Secret: fmt.Sprintf("secret %s", time.Now().String()),
@@ -157,7 +161,7 @@ func runClientStoreTest(t *testing.T, store *ClientStore) {
 
 	require.NoError(t, store.Create(originalClient))
 
-	client, err := store.GetByID(originalClient.GetID())
+	client, err := store.GetByID(ctx, originalClient.GetID())
 	require.NoError(t, err)
 	assert.Equal(t, originalClient.GetID(), client.GetID())
 	assert.Equal(t, originalClient.GetSecret(), client.GetSecret())

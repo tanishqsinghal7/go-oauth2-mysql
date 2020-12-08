@@ -1,11 +1,13 @@
-# MySQL Storage for [OAuth 2.0](https://github.com/go-oauth2/oauth2)
+# MySQL Storage/v4 for [OAuth 2.0](https://github.com/go-oauth2/oauth2)
 
 [![Build][Build-Status-Image]][Build-Status-Url] [![Codecov][codecov-image]][codecov-url]  [![GoDoc][godoc-image]][godoc-url] [![License][license-image]][license-url]
+
+**V4 Branch is suitable for github.com/go-oauth2/oauth2/v4**
 
 ## Install
 
 ```bash
-$ go get -u -v github.com/imrenagi/go-oauth2-mysql
+$ go get -u -v github.com/passwind/go-oauth2-mysql/v4
 ```
 
 ## MySQL drivers
@@ -57,6 +59,7 @@ Copyright (c) 2019 Imre Nagi
 
 ## Credits
 
+- MySQL Storage for OAuth 2.0 [`https://github.com/imrenagi/go-oauth2-mysql`](https://https://github.com/imrenagi/go-oauth2-mysql)
 - Oauth Postgres Implementation [`github.com/vgarvardt/go-pg-adapter`](https://github.com/vgarvardt/go-pg-adapter)
 
 
