@@ -21,7 +21,7 @@ package main
 
 import (
 	_ "github.com/go-sql-driver/mysql"
-	mysql "github.com/imrenagi/go-oauth2-mysql"
+	mysql "github.com/passwind/go-oauth2-mysql"
 	"github.com/jmoiron/sqlx"
 )
 
