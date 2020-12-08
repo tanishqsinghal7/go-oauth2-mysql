@@ -1,6 +1,7 @@
 package mysql
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"time"
@@ -90,7 +91,7 @@ func (s *ClientStore) toClientInfo(data string) (oauth2.ClientInfo, error) {
 }
 
 // GetByID retrieves and returns client information by id
-func (s *ClientStore) GetByID(id string) (oauth2.ClientInfo, error) {
+func (s *ClientStore) GetByID(ctx context.Context, id string) (oauth2.ClientInfo, error) {
 	if id == "" {
 		return nil, nil
 	}
