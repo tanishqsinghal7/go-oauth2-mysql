@@ -11,5 +11,4 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/stretchr/testify v1.6.1
 	github.com/vgarvardt/go-pg-adapter v0.3.0
-	gopkg.in/oauth2.v3 v3.10.0
 )
