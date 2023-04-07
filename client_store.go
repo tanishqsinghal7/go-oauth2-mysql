@@ -126,3 +126,23 @@ func (s *ClientStore) Create(info oauth2.ClientInfo) error {
 	}
 	return nil
 }
+
+// Delete deletes data from client information
+func (s *ClientStore) Delete() error {
+
+	_, err := s.db.Exec(fmt.Sprintf("DELETE FROM %s", s.tableName))
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+// DeleteClientID deletes specific Client ID from client information
+func (s *ClientStore) DeleteClientID(info oauth2.ClientInfo) error {
+
+	_, err := s.db.Exec(fmt.Sprintf("DELETE FROM %s WHERE id = ?", s.tableName), info.GetID())
+	if err != nil {
+		return err
+	}
+	return nil
+}
