@@ -13,7 +13,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	. "github.com/passwind/go-oauth2-mysql/v4"
+	. "github.com/tanishqsinghal7/go-oauth2-mysql/v4"
 )
 
 func generateTokenTableName() string {
